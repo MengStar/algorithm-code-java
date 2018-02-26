@@ -1,4 +1,6 @@
-    public class Fig10_53
+package Miscellaneous;
+
+public class Fig10_53
     {
 /* START: Fig10_53.txt */
         public static final int NOT_A_VERTEX = -1;

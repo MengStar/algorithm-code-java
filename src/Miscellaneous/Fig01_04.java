@@ -1,4 +1,6 @@
-    public class Fig01_04
+package Miscellaneous;
+
+public class Fig01_04
     {
 
         public static void printDigit( int n )

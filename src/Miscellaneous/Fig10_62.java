@@ -1,4 +1,6 @@
-    import DataStructures.Random;
+package Miscellaneous;
+
+import DataStructures.Random;
 
     public class Fig10_62
     {

@@ -1,4 +1,6 @@
-    import DataStructures.Overflow;
+package Miscellaneous;
+
+import DataStructures.Overflow;
  
     /*
      * This code doesn't really do much, and abstraction is not built in.

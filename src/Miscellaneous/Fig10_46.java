@@ -1,4 +1,6 @@
-    public class Fig10_46
+package Miscellaneous;
+
+public class Fig10_46
     {
 /* START: Fig10_46.txt */
         public static final long INFINITY = Long.MAX_VALUE;

@@ -1,4 +1,6 @@
-    public class Fig01_03
+package Miscellaneous;
+
+public class Fig01_03
     {
 
 /* START: Fig01_03.txt */

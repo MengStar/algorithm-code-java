@@ -1,5 +1,5 @@
-
-    // MemoryCell class
+package Miscellaneous;
+// MemoryCell class
     //  Object read( )         -->  Returns the stored value
     //  void write( Object x ) -->  x is stored
 

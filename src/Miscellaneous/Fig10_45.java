@@ -1,4 +1,6 @@
-    public class Fig10_45
+package Miscellaneous;
+
+public class Fig10_45
     {
 /* START: Fig10_45.txt */
         public static double eval( int n )

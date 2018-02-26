@@ -1,4 +1,6 @@
-    /**
+package Miscellaneous;
+
+/**
      * A class for simulating an integer memory cell.
      * @author Mark A. Weiss
      */

@@ -1,4 +1,6 @@
-    import java.io.*;
+package Miscellaneous;
+
+import java.io.*;
 
     public class FileSystem extends File
     {

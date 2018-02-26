@@ -1,5 +1,6 @@
+package Miscellaneous;
 
-    // Exercise the IntCell class
+// Exercise the IntCell class
     public class TestIntCell
     {
         public static void main( String [ ] args )

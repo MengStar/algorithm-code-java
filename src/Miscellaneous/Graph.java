@@ -1,7 +1,7 @@
+package Miscellaneous;
+
 import java.util.*;
 import java.io.*;
-import DataStructures.*;
-import DataStructures.LinkedList;
 
 class Vertex
 {
@@ -17,47 +17,24 @@ class Vertex
       { dist = Graph.INFINITY; path = null; }    
 }
 
-class MapEntry implements Hashable
-{
-    String vertexName;
-    Vertex storedVertex;
-
-    public MapEntry( String name )
-      { vertexName = new String( name ); storedVertex = null; }
-    public int hash( int tableSize )
-      { return QuadraticProbingHashTable.hash( vertexName, tableSize ); }
-    public boolean equals( Object rhs )
-      { return rhs instanceof MapEntry &&
-          vertexName.equals( ((MapEntry)rhs).vertexName ); }
-}
-
-// Of course, this file should be Graph.java, but there's already
-// version 1. So this will give an error if compiled at the same time
-// as Graph.java.
 class Graph
 {
     public static final int INFINITY = Integer.MAX_VALUE;
-    private QuadraticProbingHashTable vertexMap =
-        new QuadraticProbingHashTable( );    // Maps vertices to internal Vertex
-    private LinkedList allVertices = new LinkedList( );  // List of vertices
-    int numVertices = 0;
+    private HashMap vertexMap = new HashMap( );    // Maps vertices to internal Vertex
 
     public void addEdge( String sourceName, String destName )
     {
         Vertex v = getVertex( sourceName );
         Vertex w = getVertex( destName );
-        v.adj.insert( w, v.adj.zeroth( ) );
+        v.adj.add( w );
     }
 
     public void printPath( String destName ) throws NoSuchElementException
     {
-        MapEntry match = (MapEntry) vertexMap.find( new MapEntry( destName ) );
-
-        if( match == null )
+        Vertex w = (Vertex) vertexMap.get( destName );
+        if( w == null )
             throw new NoSuchElementException( "Destination vertex not found" );
-
-        Vertex w = match.storedVertex;
-        if( w.dist == INFINITY )
+        else if( w.dist == INFINITY )
             System.out.println( destName + " is unreachable" );
         else
         {
@@ -68,23 +45,15 @@ class Graph
 
       // If vertexName is not present, add it to vertexMap.
       // In either case, return the Vertex.
-      // entry is made global to avoid repeated calls to new.
-    MapEntry entry = new MapEntry( "" );
-
     private Vertex getVertex( String vertexName )
     {
-        entry.vertexName = vertexName;
-        MapEntry match = (MapEntry) vertexMap.find( entry );
-
-        if( match == null )
+        Vertex v = (Vertex) vertexMap.get( vertexName );
+        if( v == null )
         {
-            match = new MapEntry( vertexName );
-            match.storedVertex = new Vertex( vertexName );
-            allVertices.insert( match.storedVertex, allVertices.zeroth( ) );
-            numVertices++;
-            vertexMap.insert( match );
+            v = new Vertex( vertexName );
+            vertexMap.put( vertexName, v );
         }
-        return match.storedVertex;
+        return v;
     }
 
     private void printPath( Vertex dest )
@@ -99,42 +68,36 @@ class Graph
 
     private void clearAll( )
     {
-        for( LinkedListItr itr = allVertices.first( ); !itr.isPastEnd( ); itr.advance( ) )
-            ( (Vertex)itr.retrieve( ) ).reset( );
+        for( Iterator itr = vertexMap.values( ).iterator( ); itr.hasNext( ); )
+            ( (Vertex)itr.next( ) ).reset( );
     }
 
     public void unweighted( String startName ) throws NoSuchElementException
     {
         clearAll( ); 
 
-        MapEntry match = (MapEntry) vertexMap.find( new MapEntry( startName ) );
-        if( match == null )
+        Vertex start = (Vertex) vertexMap.get( startName );
+        if( start == null )
             throw new NoSuchElementException( "Start vertex not found" );
 
-        try
+        LinkedList q = new LinkedList( );
+        q.addLast( start ); start.dist = 0;
+
+        while( !q.isEmpty( ) )
         {
-            Vertex start = match.storedVertex;
-            QueueAr q = new QueueAr( numVertices );
-            q.enqueue( start ); start.dist = 0;
+            Vertex v = (Vertex) q.removeFirst( );
 
-            while( !q.isEmpty( ) )
+            for( Iterator itr = v.adj.iterator( ); itr.hasNext( ); )
             {
-                Vertex v = (Vertex) q.dequeue( );
-
-                for( LinkedListItr itr = v.adj.first( ); !itr.isPastEnd( ); itr.advance( ) )
+                Vertex w = (Vertex) itr.next( );
+                if( w.dist == INFINITY )
                 {
-                    Vertex w = (Vertex) itr.retrieve( );
-                    if( w.dist == INFINITY )
-                    {
-                        w.dist = v.dist + 1;    
-                        w.path = v;
-                        q.enqueue( w );
-                    }
+                    w.dist = v.dist + 1;
+                    w.path = v;
+                    q.addLast( w );
                 }
             }
         }
-        catch( Overflow e )
-          { System.out.println( "Queue Capacity exceeded unexpectedly!" ); }
     }
 
     /**

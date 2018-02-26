@@ -1,3 +1,5 @@
+package Miscellaneous;
+
 public class Fig02_10
 {
 /* START: Fig02_10.txt*/

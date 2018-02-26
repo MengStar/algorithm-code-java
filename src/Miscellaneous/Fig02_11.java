@@ -1,3 +1,5 @@
+package Miscellaneous;
+
 public class Fig02_11
 {
         public static boolean isEven( int n )

@@ -1,4 +1,6 @@
-    import DataStructures.Comparable;
+package Miscellaneous;
+
+import DataStructures.Comparable;
     import DataStructures.MyInteger;
 
     /**

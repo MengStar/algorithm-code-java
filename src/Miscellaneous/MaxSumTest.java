@@ -1,3 +1,5 @@
+package Miscellaneous;
+
 public final class MaxSumTest
 {
 /* START: Fig02_05.txt */

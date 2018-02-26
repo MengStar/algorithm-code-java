@@ -1,4 +1,6 @@
-    import java.io.*;
+package Miscellaneous;
+
+import java.io.*;
     import java.util.*;
 
     // Read two integers and output the maximum.
