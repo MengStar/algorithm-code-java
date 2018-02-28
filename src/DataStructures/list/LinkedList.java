@@ -1,4 +1,4 @@
-    package DataStructures;
+    package DataStructures.list;
 
     // LinkedList class
     //
@@ -18,6 +18,8 @@
     //                        --> Return position prior to x
     // ******************ERRORS********************************
     // No special errors
+
+    import DataStructures.MyInteger;
 
     /**
      * Linked list implementation of the list

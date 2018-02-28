@@ -1,4 +1,4 @@
-    package DataStructures;
+    package DataStructures.stack;
 
     // StackLi class
     //
@@ -14,6 +14,10 @@
     // void makeEmpty( )      --> Remove all items
     // ******************ERRORS********************************
     // pop on empty stack
+
+    import DataStructures.MyInteger;
+    import DataStructures.Underflow;
+    import DataStructures.list.ListNode;
 
     /**
      * List-based implementation of the stack.

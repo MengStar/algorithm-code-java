@@ -3,7 +3,7 @@
 //import java.util.*;
 //import java.io.*;
 //import DataStructures.*;
-//import DataStructures.LinkedList;
+//import DataStructures.list.LinkedList;
 //
 //class Vertex
 //{

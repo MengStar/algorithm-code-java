@@ -1,4 +1,4 @@
-    package DataStructures;
+    package DataStructures.queue;
 
     // QueueAr class
     //
@@ -14,6 +14,9 @@
     // void makeEmpty( )      --> Remove all items
     // ******************ERRORS********************************
     // Overflow thrown for enqueue on full queue
+
+    import DataStructures.MyInteger;
+    import DataStructures.Overflow;
 
     /**
      * Array-based implementation of the queue.

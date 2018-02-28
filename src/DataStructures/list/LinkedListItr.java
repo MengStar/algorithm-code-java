@@ -1,4 +1,4 @@
-    package DataStructures;
+    package DataStructures.list;
 
     // LinkedListItr class; maintains "current position"
     //

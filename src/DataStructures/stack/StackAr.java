@@ -1,4 +1,4 @@
-    package DataStructures;
+    package DataStructures.stack;
 
     // StackAr class
     //
@@ -14,6 +14,10 @@
     // void makeEmpty( )      --> Remove all items
     // ******************ERRORS********************************
     // Overflow and Underflow thrown as needed
+
+    import DataStructures.MyInteger;
+    import DataStructures.Overflow;
+    import DataStructures.Underflow;
 
     /**
      * Array-based implementation of the stack.

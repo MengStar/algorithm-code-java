@@ -4,7 +4,8 @@ import java.util.*;
 import java.io.*;
 import DataStructures.*;
 import DataStructures.Comparable;
-import DataStructures.LinkedList;
+import DataStructures.list.LinkedList;
+import DataStructures.list.LinkedListItr;
 
 class WordEntry implements Comparable
 {

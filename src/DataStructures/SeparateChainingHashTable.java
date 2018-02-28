@@ -14,6 +14,9 @@
     // ******************ERRORS********************************
     // insert overrides previous value if duplicate; not an error
 
+    import DataStructures.list.LinkedList;
+    import DataStructures.list.LinkedListItr;
+
     /**
      * Separate chaining table implementation of hash tables.
      * Note that all "matching" is based on the equals method.
